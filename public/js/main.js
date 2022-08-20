@@ -6,8 +6,11 @@ async function apiRequest(){
         const response = await fetch(`https://rap-names-api-karsyz.herokuapp.com/api/${rapperName}`)
         const data = await response.json()
 
+        document.querySelector('#rapName').innerText = data.rapName
+        document.querySelector('#age').innerText = data.age
+        document.querySelector('#birthName').innerText = data.birthName
+        document.querySelector('#birthLocation').innerText = data.birthLocation
         console.log(data)
-        document.querySelector('h2').innerText = data.birthName
     }catch(error){
         console.log(error)
     }
