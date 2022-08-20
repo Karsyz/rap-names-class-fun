@@ -30,6 +30,7 @@ const rappers = {
 // Static Folder
 app.use(express.static(path.join(__dirname, 'public')))
 
+// Routes
 app.get('/', (req, res) => {
     res.sendFile('/public/index.html')
 })
@@ -43,6 +44,7 @@ app.get('/api/:rapperName', (req, res) => {
     }
 })
 
+// Listen PORT
 app.listen(process.env.PORT || PORT, ()=>{
     console.log(`The server is running on port ${PORT}.`)
 })
