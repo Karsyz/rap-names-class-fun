@@ -21,7 +21,7 @@ const rappers = {
     },
     'dylan': {
         rapName: 'Dylan',
-        age: 33,
+        age: 'Dylan',
         birthName: 'Dylan',
         birthLocation: 'Dylan',
     },
@@ -31,11 +31,7 @@ const rappers = {
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
-})
-
-app.get('js/main', (req, res) => {
-    res.sendFile(__dirname + 'js/main.js')
+    res.sendFile('/public/index.html')
 })
 
 app.get('/api/:rapperName', (req, res) => {
@@ -44,7 +40,6 @@ app.get('/api/:rapperName', (req, res) => {
         res.json(rappers[rappersName])
     } else {
         res.json(rappers['dylan'])
-
     }
 })
 
