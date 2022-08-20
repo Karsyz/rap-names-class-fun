@@ -1,4 +1,4 @@
-const { request } = require('express')
+const path = require('path')
 const express =  require('express')
 const app = express()
 const cors = require('cors')
@@ -27,8 +27,15 @@ const rappers = {
     },
 }
 
+// Static Folder
+app.use(express.static(path.join(__dirname, 'public')))
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
+})
+
+app.get('js/main', (req, res) => {
+    res.sendFile(__dirname + 'js/main.js')
 })
 
 app.get('/api/:rapperName', (req, res) => {
@@ -37,6 +44,7 @@ app.get('/api/:rapperName', (req, res) => {
         res.json(rappers[rappersName])
     } else {
         res.json(rappers['dylan'])
+
     }
 })
 
